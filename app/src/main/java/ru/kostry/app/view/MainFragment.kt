@@ -29,6 +29,8 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding?.apply {
+//            привязка к MainViewModel
+            viewModel = sharedViewModel
 //            переход между фрагментами
             btnMainFragment.setOnClickListener { findNavController().navigate(R.id.action_mainFragment_to_firstFragment) }
         }

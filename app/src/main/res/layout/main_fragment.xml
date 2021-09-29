@@ -6,8 +6,8 @@
 
     <data>
         <variable
-            name="mainFragment"
-            type="ru.kostry.app.view.MainFragment" />
+            name="viewModel"
+            type="ru.kostry.app.viewmodel.MainViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
