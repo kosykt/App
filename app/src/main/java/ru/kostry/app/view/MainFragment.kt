@@ -38,4 +38,9 @@ class MainFragment : Fragment() {
         super.onDestroyView()
         binding = null
     }
+
+//    пример передачи/установки частного свойсва из фрагмента
+    fun orderNumberForViewModel(quantity: Int) {
+        sharedViewModel.setNum(quantity)
+    }
 }
