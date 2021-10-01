@@ -41,7 +41,8 @@ class MainFragment : Fragment() {
     }
 
     fun buttonNextOnMainFragment(){
-//        пример сохранения
+//        пример сохранения и вывода LiveData
+        sharedViewModel.setMyString(binding?.mainEditText?.text.toString())
         binding?.mainFragmentMessage?.text = sharedViewModel.myString.value.toString()
 
 
