@@ -5,10 +5,12 @@
     tools:context=".view.MainFragment">
 
     <data>
-
         <variable
             name="mainFragment"
             type="ru.kostry.app.view.MainFragment" />
+        <variable
+            name="viewModel"
+            type="ru.kostry.app.viewmodel.MainViewModel" />
     </data>
 
     <ScrollView
@@ -24,7 +26,7 @@
                 android:id="@+id/main_fragment_message"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/main_fragment_text"
+                android:text="@{viewModel.myString.toString()}"
                 app:layout_constraintBottom_toTopOf="@id/main_edit_text"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

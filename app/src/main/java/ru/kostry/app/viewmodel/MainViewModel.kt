@@ -18,14 +18,15 @@ class MainViewModel : ViewModel() {
 
     fun resetModel() {
         _myNumber.value = 0
-        _myString.value = ""
+        _myString.value = "test"
     }
 
-    fun setMyNumber(number: Int){
+    fun setMyNumber(number: Int) {
         _myNumber.value = number
     }
 
-    fun  setMyString(str: String){
+    fun setMyString(str: String) {
         _myString.value = str
     }
+
 }

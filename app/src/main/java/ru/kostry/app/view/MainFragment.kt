@@ -34,8 +34,11 @@ class MainFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         binding?.apply {
+//              автоматическое обновление данных с помощью обсервера
             lifecycleOwner = viewLifecycleOwner
+//            привязка ViewModel из xml к ViewModel обьявленного в class
             viewModel = sharedViewModel
+//            позволяет использовать onClickListener прямо в xml
             mainFragment = this@MainFragment
         }
     }
@@ -43,9 +46,6 @@ class MainFragment : Fragment() {
     fun buttonNextOnMainFragment(){
 //        пример сохранения и вывода LiveData
         sharedViewModel.setMyString(binding?.mainEditText?.text.toString())
-        binding?.mainFragmentMessage?.text = sharedViewModel.myString.value.toString()
-
-
-//        findNavController().navigate(R.id.action_mainFragment_to_firstFragment)
+        findNavController().navigate(R.id.action_mainFragment_to_firstFragment)
     }
 }
