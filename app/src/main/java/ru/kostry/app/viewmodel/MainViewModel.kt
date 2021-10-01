@@ -6,12 +6,26 @@ import androidx.lifecycle.ViewModel
 
 class MainViewModel : ViewModel() {
 
-//пример частного измениемого свойства
-    private val _num = MutableLiveData<Int>(0)
-    val num: LiveData<Int> = _num
+    private val _myNumber = MutableLiveData<Int>()
+    val myNumber: LiveData<Int> = _myNumber
 
-//    способ изменения частного изменяемого свойства
-    fun setNum(numbers: Int) {
-        _num.value = numbers
+    private val _myString = MutableLiveData<String>()
+    val myString: LiveData<String> = _myString
+
+    init {
+        resetModel()
+    }
+
+    fun resetModel() {
+        _myNumber.value = 0
+        _myString.value = ""
+    }
+
+    fun setMyNumber(number: Int){
+        _myNumber.value = number
+    }
+
+    fun  setMyString(str: String){
+        _myString.value = str
     }
 }

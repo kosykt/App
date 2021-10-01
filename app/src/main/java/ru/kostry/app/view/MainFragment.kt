@@ -28,12 +28,7 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding?.apply {
-//            привязка к MainViewModel
-            viewModel = sharedViewModel
-//            переход между фрагментами
-            btnMainFragment.setOnClickListener { findNavController().navigate(R.id.action_mainFragment_to_firstFragment) }
-        }
+        binding?.mainFragment = this
     }
 
     override fun onDestroyView() {
@@ -41,8 +36,8 @@ class MainFragment : Fragment() {
         binding = null
     }
 
-//    пример передачи/установки частного свойсва из фрагмента
-    fun orderNumberForViewModel(quantity: Int) {
-        sharedViewModel.setNum(quantity)
+    fun buttonNextOnMainFragment(){
+        sharedViewModel.setMyString(binding?.mainEditText?.text.toString())
+        findNavController().navigate(R.id.action_mainFragment_to_firstFragment)
     }
 }
