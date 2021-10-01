@@ -33,11 +33,18 @@ class MainFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        binding = null
+        binding?.apply {
+            lifecycleOwner = viewLifecycleOwner
+            viewModel = sharedViewModel
+            mainFragment = this@MainFragment
+        }
     }
 
     fun buttonNextOnMainFragment(){
-        sharedViewModel.setMyString(binding?.mainEditText?.text.toString())
-        findNavController().navigate(R.id.action_mainFragment_to_firstFragment)
+//        пример сохранения
+        binding?.mainFragmentMessage?.text = sharedViewModel.myString.value.toString()
+
+
+//        findNavController().navigate(R.id.action_mainFragment_to_firstFragment)
     }
 }
