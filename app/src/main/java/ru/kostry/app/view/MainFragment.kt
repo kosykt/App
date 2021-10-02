@@ -28,11 +28,6 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding?.mainFragment = this
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
         binding?.apply {
 //              автоматическое обновление данных с помощью обсервера
             lifecycleOwner = viewLifecycleOwner
@@ -41,6 +36,11 @@ class MainFragment : Fragment() {
 //            позволяет использовать onClickListener прямо в xml
             mainFragment = this@MainFragment
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding = null
     }
 
     fun buttonNextOnMainFragment(){
