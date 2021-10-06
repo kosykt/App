@@ -1,9 +1,6 @@
 package ru.kostry.app.databinding;
 import ru.kostry.app.R;
 import ru.kostry.app.BR;
-import ru.kostry.app.ui.view.SecondFragment;
-import ru.kostry.app.ui.viewmodel.MainViewModel;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import android.view.View;
@@ -70,10 +67,10 @@ public class FragmentSecondBindingImpl extends FragmentSecondBinding implements 
     public boolean setVariable(int variableId, @Nullable Object variable)  {
         boolean variableSet = true;
         if (BR.secondFragment == variableId) {
-            setSecondFragment((SecondFragment) variable);
+            setSecondFragment((ru.kostry.app.ui.view.SecondFragment) variable);
         }
         else if (BR.viewModel == variableId) {
-            setViewModel((MainViewModel) variable);
+            setViewModel((ru.kostry.app.ui.viewmodel.MainViewModel) variable);
         }
         else {
             variableSet = false;
@@ -81,7 +78,7 @@ public class FragmentSecondBindingImpl extends FragmentSecondBinding implements 
             return variableSet;
     }
 
-    public void setSecondFragment(@Nullable SecondFragment SecondFragment) {
+    public void setSecondFragment(@Nullable ru.kostry.app.ui.view.SecondFragment SecondFragment) {
         this.mSecondFragment = SecondFragment;
         synchronized(this) {
             mDirtyFlags |= 0x4L;
@@ -89,7 +86,7 @@ public class FragmentSecondBindingImpl extends FragmentSecondBinding implements 
         notifyPropertyChanged(BR.secondFragment);
         super.requestRebind();
     }
-    public void setViewModel(@Nullable MainViewModel ViewModel) {
+    public void setViewModel(@Nullable ru.kostry.app.ui.viewmodel.MainViewModel ViewModel) {
         this.mViewModel = ViewModel;
         synchronized(this) {
             mDirtyFlags |= 0x8L;
@@ -134,13 +131,13 @@ public class FragmentSecondBindingImpl extends FragmentSecondBinding implements 
             dirtyFlags = mDirtyFlags;
             mDirtyFlags = 0;
         }
-        SecondFragment secondFragment = mSecondFragment;
+        ru.kostry.app.ui.view.SecondFragment secondFragment = mSecondFragment;
         java.lang.String viewModelMyStringToString = null;
         androidx.lifecycle.LiveData<java.lang.String> viewModelMyString = null;
         java.lang.String secondFragmentStringMessageAndroidStringUserTextViewModelMyStringToString = null;
         java.lang.Integer viewModelMyNumberGetValue = null;
         java.lang.String viewModelMyStringGetValue = null;
-        MainViewModel viewModel = mViewModel;
+        ru.kostry.app.ui.viewmodel.MainViewModel viewModel = mViewModel;
         java.lang.String secondFragmentIntMessageAndroidStringUserNumberViewModelMyNumber = null;
         androidx.lifecycle.LiveData<java.lang.Integer> viewModelMyNumber = null;
 
@@ -212,7 +209,7 @@ public class FragmentSecondBindingImpl extends FragmentSecondBinding implements 
     public final void _internalCallbackOnClick(int sourceId , android.view.View callbackArg_0) {
         // localize variables for thread safety
         // secondFragment
-        SecondFragment secondFragment = mSecondFragment;
+        ru.kostry.app.ui.view.SecondFragment secondFragment = mSecondFragment;
         // secondFragment != null
         boolean secondFragmentJavaLangObjectNull = false;
 

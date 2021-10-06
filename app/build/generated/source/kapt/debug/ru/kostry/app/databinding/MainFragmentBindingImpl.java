@@ -1,9 +1,6 @@
 package ru.kostry.app.databinding;
 import ru.kostry.app.R;
 import ru.kostry.app.BR;
-import ru.kostry.app.ui.view.MainFragment;
-import ru.kostry.app.ui.viewmodel.MainViewModel;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import android.view.View;
@@ -68,10 +65,10 @@ public class MainFragmentBindingImpl extends MainFragmentBinding implements ru.k
     public boolean setVariable(int variableId, @Nullable Object variable)  {
         boolean variableSet = true;
         if (BR.mainFragment == variableId) {
-            setMainFragment((MainFragment) variable);
+            setMainFragment((ru.kostry.app.ui.view.MainFragment) variable);
         }
         else if (BR.viewModel == variableId) {
-            setViewModel((MainViewModel) variable);
+            setViewModel((ru.kostry.app.ui.viewmodel.MainViewModel) variable);
         }
         else {
             variableSet = false;
@@ -79,7 +76,7 @@ public class MainFragmentBindingImpl extends MainFragmentBinding implements ru.k
             return variableSet;
     }
 
-    public void setMainFragment(@Nullable MainFragment MainFragment) {
+    public void setMainFragment(@Nullable ru.kostry.app.ui.view.MainFragment MainFragment) {
         this.mMainFragment = MainFragment;
         synchronized(this) {
             mDirtyFlags |= 0x1L;
@@ -87,7 +84,7 @@ public class MainFragmentBindingImpl extends MainFragmentBinding implements ru.k
         notifyPropertyChanged(BR.mainFragment);
         super.requestRebind();
     }
-    public void setViewModel(@Nullable MainViewModel ViewModel) {
+    public void setViewModel(@Nullable ru.kostry.app.ui.viewmodel.MainViewModel ViewModel) {
         this.mViewModel = ViewModel;
     }
 
@@ -105,7 +102,7 @@ public class MainFragmentBindingImpl extends MainFragmentBinding implements ru.k
             dirtyFlags = mDirtyFlags;
             mDirtyFlags = 0;
         }
-        MainFragment mainFragment = mMainFragment;
+        ru.kostry.app.ui.view.MainFragment mainFragment = mMainFragment;
         // batch finished
         if ((dirtyFlags & 0x4L) != 0) {
             // api target 1
@@ -120,7 +117,7 @@ public class MainFragmentBindingImpl extends MainFragmentBinding implements ru.k
         // mainFragment != null
         boolean mainFragmentJavaLangObjectNull = false;
         // mainFragment
-        MainFragment mainFragment = mMainFragment;
+        ru.kostry.app.ui.view.MainFragment mainFragment = mMainFragment;
 
 
 

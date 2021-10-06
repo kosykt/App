@@ -1,9 +1,6 @@
 package ru.kostry.app.databinding;
 import ru.kostry.app.R;
 import ru.kostry.app.BR;
-import ru.kostry.app.ui.view.FirstFragment;
-import ru.kostry.app.ui.viewmodel.MainViewModel;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import android.view.View;
@@ -75,10 +72,10 @@ public class FragmentFirstBindingImpl extends FragmentFirstBinding implements ru
     public boolean setVariable(int variableId, @Nullable Object variable)  {
         boolean variableSet = true;
         if (BR.firstFragment == variableId) {
-            setFirstFragment((FirstFragment) variable);
+            setFirstFragment((ru.kostry.app.ui.view.FirstFragment) variable);
         }
         else if (BR.viewModel == variableId) {
-            setViewModel((MainViewModel) variable);
+            setViewModel((ru.kostry.app.ui.viewmodel.MainViewModel) variable);
         }
         else {
             variableSet = false;
@@ -86,7 +83,7 @@ public class FragmentFirstBindingImpl extends FragmentFirstBinding implements ru
             return variableSet;
     }
 
-    public void setFirstFragment(@Nullable FirstFragment FirstFragment) {
+    public void setFirstFragment(@Nullable ru.kostry.app.ui.view.FirstFragment FirstFragment) {
         this.mFirstFragment = FirstFragment;
         synchronized(this) {
             mDirtyFlags |= 0x2L;
@@ -94,7 +91,7 @@ public class FragmentFirstBindingImpl extends FragmentFirstBinding implements ru
         notifyPropertyChanged(BR.firstFragment);
         super.requestRebind();
     }
-    public void setViewModel(@Nullable MainViewModel ViewModel) {
+    public void setViewModel(@Nullable ru.kostry.app.ui.viewmodel.MainViewModel ViewModel) {
         this.mViewModel = ViewModel;
         synchronized(this) {
             mDirtyFlags |= 0x4L;
@@ -128,12 +125,12 @@ public class FragmentFirstBindingImpl extends FragmentFirstBinding implements ru
             dirtyFlags = mDirtyFlags;
             mDirtyFlags = 0;
         }
-        FirstFragment firstFragment = mFirstFragment;
+        ru.kostry.app.ui.view.FirstFragment firstFragment = mFirstFragment;
         java.lang.String viewModelMyStringToString = null;
         java.lang.String firstFragmentMessageAndroidStringUserTextViewModelMyStringToString = null;
         androidx.lifecycle.LiveData<java.lang.String> viewModelMyString = null;
         java.lang.String viewModelMyStringGetValue = null;
-        MainViewModel viewModel = mViewModel;
+        ru.kostry.app.ui.viewmodel.MainViewModel viewModel = mViewModel;
 
         if ((dirtyFlags & 0xdL) != 0) {
 
@@ -181,7 +178,7 @@ public class FragmentFirstBindingImpl extends FragmentFirstBinding implements ru
             case 2: {
                 // localize variables for thread safety
                 // firstFragment
-                FirstFragment firstFragment = mFirstFragment;
+                ru.kostry.app.ui.view.FirstFragment firstFragment = mFirstFragment;
                 // firstFragment != null
                 boolean firstFragmentJavaLangObjectNull = false;
 
@@ -198,7 +195,7 @@ public class FragmentFirstBindingImpl extends FragmentFirstBinding implements ru
             case 1: {
                 // localize variables for thread safety
                 // firstFragment
-                FirstFragment firstFragment = mFirstFragment;
+                ru.kostry.app.ui.view.FirstFragment firstFragment = mFirstFragment;
                 // firstFragment != null
                 boolean firstFragmentJavaLangObjectNull = false;
 
