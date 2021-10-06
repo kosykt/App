@@ -5,9 +5,11 @@
     tools:context=".view.FirstFragment">
 
     <data>
+
         <variable
             name="firstFragment"
             type="ru.kostry.app.view.FirstFragment" />
+
         <variable
             name="viewModel"
             type="ru.kostry.app.viewmodel.MainViewModel" />
@@ -35,7 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="number"
-            app:layout_constraintBottom_toTopOf="@id/btn_first_fragment"
+            app:layout_constraintBottom_toTopOf="@id/btn_next_first_fragment"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/first_fragment_message"
@@ -43,15 +45,27 @@
             tools:text="123456789" />
 
         <Button
-            android:id="@+id/btn_first_fragment"
+            android:id="@+id/btn_next_first_fragment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="@{()-> firstFragment.buttonNextOnFirstFragment()}"
-            android:text="@string/first_fragment_button_text"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="@string/button_text_next"
+            app:layout_constraintBottom_toTopOf="@id/btn_back_first_fragment"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/first_fragment_editTextNumber" />
+
+        <Button
+            android:id="@+id/btn_back_first_fragment"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{()-> firstFragment.buttonBackOnFirstFragment()}"
+            android:text="@string/back_to_main_btn"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_next_first_fragment" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

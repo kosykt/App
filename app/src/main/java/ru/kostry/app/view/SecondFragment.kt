@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
+import ru.kostry.app.R
 import ru.kostry.app.databinding.FragmentSecondBinding
 import ru.kostry.app.viewmodel.MainViewModel
 
@@ -39,5 +41,10 @@ class SecondFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         binding = null
+    }
+
+    fun buttonBackOnSecondFragment() {
+        sharedViewModel.resetModel()
+        findNavController().navigate(R.id.action_secondFragment_to_mainFragment)
     }
 }

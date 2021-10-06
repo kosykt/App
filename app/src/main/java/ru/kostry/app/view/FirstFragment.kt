@@ -21,7 +21,7 @@ class FirstFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val fragmentBinding = FragmentFirstBinding.inflate(inflater, container,false)
+        val fragmentBinding = FragmentFirstBinding.inflate(inflater, container, false)
         binding = fragmentBinding
         return fragmentBinding.root
     }
@@ -43,8 +43,13 @@ class FirstFragment : Fragment() {
         binding = null
     }
 
-    fun buttonNextOnFirstFragment(){
+    fun buttonNextOnFirstFragment() {
         sharedViewModel.setMyNumber(binding?.firstFragmentEditTextNumber?.text.toString().toInt())
         findNavController().navigate(R.id.action_firstFragment_to_secondFragment)
+    }
+
+    fun buttonBackOnFirstFragment() {
+        sharedViewModel.resetModel()
+        findNavController().navigate(R.id.action_firstFragment_to_mainFragment)
     }
 }

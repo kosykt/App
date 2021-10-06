@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/mainFragment"
         android:name="ru.kostry.app.view.MainFragment"
-        android:label="main_fragment"
+        android:label="@string/label_main_frgment"
         tools:layout="@layout/main_fragment" >
         <action
             android:id="@+id/action_mainFragment_to_firstFragment"
@@ -17,24 +17,40 @@
     <fragment
         android:id="@+id/firstFragment"
         android:name="ru.kostry.app.view.FirstFragment"
-        android:label="fragment_first"
+        android:label="@string/label_first_fragment"
         tools:layout="@layout/fragment_first" >
         <action
             android:id="@+id/action_firstFragment_to_secondFragment"
             app:destination="@id/secondFragment" />
+        <action
+            android:id="@+id/action_firstFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:popUpTo="@id/mainFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/secondFragment"
         android:name="ru.kostry.app.view.SecondFragment"
-        android:label="fragment_second"
+        android:label="@string/label_second_fragment"
         tools:layout="@layout/fragment_second" >
         <action
             android:id="@+id/action_secondFragment_to_thirdFragment"
             app:destination="@id/thirdFragment" />
+        <action
+            android:id="@+id/action_secondFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:popUpTo="@id/mainFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
     <fragment
         android:id="@+id/thirdFragment"
         android:name="ru.kostry.app.view.ThirdFragment"
-        android:label="fragment_third"
-        tools:layout="@layout/fragment_third" />
+        android:label="@string/label_third_fragment"
+        tools:layout="@layout/fragment_third" >
+        <action
+            android:id="@+id/action_thirdFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:popUpTo="@id/mainFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
 </navigation>
