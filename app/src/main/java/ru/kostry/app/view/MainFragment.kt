@@ -54,11 +54,13 @@ class MainFragment : Fragment() {
     }
 
     fun buttonNextOnMainFragment(){
-        if (sharedViewModel.emptyString(binding?.mainTextInputEditText?.text.toString())){
+        val userWord = binding?.mainTextInputEditText?.text.toString()
+
+        if (sharedViewModel.emptyString(userWord)){
             setErrorTextField(true)
         }else{
             setErrorTextField(false)
-            sharedViewModel.setMyString(binding?.mainTextInputEditText?.text.toString())
+            sharedViewModel.setMyString(userWord)
             findNavController().navigate(R.id.action_mainFragment_to_firstFragment)
         }
     }
