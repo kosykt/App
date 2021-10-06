@@ -1,4 +1,4 @@
-package ru.kostry.app.viewmodel
+package ru.kostry.app.ui.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

@@ -2,17 +2,17 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".view.FirstFragment">
+    tools:context=".ui.view.FirstFragment">
 
     <data>
 
         <variable
             name="firstFragment"
-            type="ru.kostry.app.view.FirstFragment" />
+            type="ru.kostry.app.ui.view.FirstFragment" />
 
         <variable
             name="viewModel"
-            type="ru.kostry.app.viewmodel.MainViewModel" />
+            type="ru.kostry.app.ui.viewmodel.MainViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

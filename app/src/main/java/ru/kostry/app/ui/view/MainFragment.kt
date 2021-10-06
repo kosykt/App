@@ -1,4 +1,4 @@
-package ru.kostry.app.view
+package ru.kostry.app.ui.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,12 +8,12 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import ru.kostry.app.R
-import ru.kostry.app.databinding.FragmentFirstBinding
-import ru.kostry.app.viewmodel.MainViewModel
+import ru.kostry.app.databinding.MainFragmentBinding
+import ru.kostry.app.ui.viewmodel.MainViewModel
 
-class FirstFragment : Fragment() {
+class MainFragment : Fragment() {
 
-    private var binding: FragmentFirstBinding? = null
+    private var binding: MainFragmentBinding? = null
     private val sharedViewModel: MainViewModel by activityViewModels()
 
     override fun onCreateView(
@@ -21,7 +21,7 @@ class FirstFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val fragmentBinding = FragmentFirstBinding.inflate(inflater, container, false)
+        val fragmentBinding = MainFragmentBinding.inflate(inflater, container, false)
         binding = fragmentBinding
         return fragmentBinding.root
     }
@@ -34,7 +34,7 @@ class FirstFragment : Fragment() {
 //            привязка ViewModel из xml к ViewModel обьявленного в class
             viewModel = sharedViewModel
 //            позволяет использовать onClickListener прямо в xml
-            firstFragment = this@FirstFragment
+            mainFragment = this@MainFragment
         }
     }
 
@@ -45,28 +45,23 @@ class FirstFragment : Fragment() {
 
     private fun setErrorTextField(error: Boolean) {
         if (error) {
-            binding?.firstFragmentEditTextField?.isErrorEnabled = true
-            binding?.firstFragmentEditTextField?.error = getString(R.string.try_again)
+            binding?.mainEditTextField?.isErrorEnabled = true
+            binding?.mainEditTextField?.error = getString(R.string.try_again)
         } else {
-            binding?.firstFragmentEditTextField?.isErrorEnabled = false
-            binding?.firstFragmentNumberInputEditText?.text = null
+            binding?.mainEditTextField?.isErrorEnabled = false
+            binding?.mainTextInputEditText?.text = null
         }
     }
 
-    fun buttonNextOnFirstFragment() {
-        val userNum = binding?.firstFragmentNumberInputEditText?.text.toString()
+    fun buttonNextOnMainFragment(){
+        val userWord = binding?.mainTextInputEditText?.text.toString()
 
-        if (sharedViewModel.emptyNum(userNum)){
+        if (sharedViewModel.emptyString(userWord)){
             setErrorTextField(true)
         }else{
             setErrorTextField(false)
-            sharedViewModel.setMyNumber(userNum.toInt())
-            findNavController().navigate(R.id.action_firstFragment_to_secondFragment)
+            sharedViewModel.setMyString(userWord)
+            findNavController().navigate(R.id.action_mainFragment_to_firstFragment)
         }
-    }
-
-    fun buttonBackOnFirstFragment() {
-        sharedViewModel.resetModel()
-        findNavController().navigate(R.id.action_firstFragment_to_mainFragment)
     }
 }

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="ru.kostry.app.view.MainFragment"
+        android:name="ru.kostry.app.ui.view.MainFragment"
         android:label="@string/label_main_frgment"
         tools:layout="@layout/main_fragment" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/firstFragment"
-        android:name="ru.kostry.app.view.FirstFragment"
+        android:name="ru.kostry.app.ui.view.FirstFragment"
         android:label="@string/label_first_fragment"
         tools:layout="@layout/fragment_first" >
         <action
@@ -30,7 +30,7 @@
     </fragment>
     <fragment
         android:id="@+id/secondFragment"
-        android:name="ru.kostry.app.view.SecondFragment"
+        android:name="ru.kostry.app.ui.view.SecondFragment"
         android:label="@string/label_second_fragment"
         tools:layout="@layout/fragment_second" >
         <action
@@ -44,7 +44,7 @@
     </fragment>
     <fragment
         android:id="@+id/thirdFragment"
-        android:name="ru.kostry.app.view.ThirdFragment"
+        android:name="ru.kostry.app.ui.view.ThirdFragment"
         android:label="@string/label_third_fragment"
         tools:layout="@layout/fragment_third" >
         <action

@@ -1,4 +1,4 @@
-package ru.kostry.app.view
+package ru.kostry.app.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

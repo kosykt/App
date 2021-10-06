@@ -5,7 +5,7 @@
     android:id="@+id/third_frg"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.ThirdFragment">
+    tools:context=".ui.view.ThirdFragment">
 
     <TextView
         android:id="@+id/third_fragment_message"

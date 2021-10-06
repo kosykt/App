@@ -1,4 +1,4 @@
-package ru.kostry.app.view
+package ru.kostry.app.ui.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import ru.kostry.app.R
 import ru.kostry.app.databinding.FragmentSecondBinding
-import ru.kostry.app.viewmodel.MainViewModel
+import ru.kostry.app.ui.viewmodel.MainViewModel
 
 class SecondFragment : Fragment() {
 

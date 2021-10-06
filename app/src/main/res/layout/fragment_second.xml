@@ -2,17 +2,15 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".view.SecondFragment">
+    tools:context=".ui.view.SecondFragment">
 
     <data>
-
         <variable
             name="secondFragment"
-            type="ru.kostry.app.view.SecondFragment" />
-
+            type="ru.kostry.app.ui.view.SecondFragment" />
         <variable
             name="viewModel"
-            type="ru.kostry.app.viewmodel.MainViewModel" />
+            type="ru.kostry.app.ui.viewmodel.MainViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -48,7 +46,7 @@
             app:layout_constraintBottom_toTopOf="@+id/btn_back_second_fragment"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/second_fragment_int_message"
             app:layout_constraintVertical_chainStyle="packed" />
 
         <Button
@@ -58,7 +56,6 @@
             android:layout_height="wrap_content"
             android:onClick="@{()-> secondFragment.buttonBackOnSecondFragment()}"
             android:text="@string/back_to_main_btn"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btn_next_second_fragment" />

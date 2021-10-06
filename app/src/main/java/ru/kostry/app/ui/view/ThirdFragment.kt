@@ -1,4 +1,4 @@
-package ru.kostry.app.view
+package ru.kostry.app.ui.view
 
 import androidx.fragment.app.Fragment
 
