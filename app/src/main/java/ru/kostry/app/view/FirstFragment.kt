@@ -43,9 +43,26 @@ class FirstFragment : Fragment() {
         binding = null
     }
 
+    private fun setErrorTextField(error: Boolean) {
+        if (error) {
+            binding?.firstFragmentEditTextField?.isErrorEnabled = true
+            binding?.firstFragmentEditTextField?.error = getString(R.string.try_again)
+        } else {
+            binding?.firstFragmentEditTextField?.isErrorEnabled = false
+            binding?.firstFragmentNumberInputEditText?.text = null
+        }
+    }
+
     fun buttonNextOnFirstFragment() {
-        sharedViewModel.setMyNumber(binding?.firstFragmentEditTextNumber?.text.toString().toInt())
-        findNavController().navigate(R.id.action_firstFragment_to_secondFragment)
+        val userNum = binding?.firstFragmentNumberInputEditText?.text.toString()
+
+        if (sharedViewModel.emptyNum(userNum)){
+            setErrorTextField(true)
+        }else{
+            setErrorTextField(false)
+            sharedViewModel.setMyNumber(userNum.toInt())
+            findNavController().navigate(R.id.action_firstFragment_to_secondFragment)
+        }
     }
 
     fun buttonBackOnFirstFragment() {

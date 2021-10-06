@@ -10,6 +10,7 @@
     <string name="third_fragment_text">third fragment text</string>
     <string name="third_fragment_button_text">third fragment button</string>
     <string name="main_fragment_edit_text">write some text</string>
+    <string name="first_fragment_edit_text">write some number</string>
     <string name="label_main_frgment">main fragment</string>
     <string name="label_first_fragment">first fragment</string>
     <string name="label_second_fragment">second fragment</string>
@@ -17,4 +18,5 @@
     <string name="back_to_main_btn">back to main</string>
     <string name="try_again">try again</string>
     <string name="user_text">user text: %s</string>
+    <string name="user_number">user text: %d</string>
 </resources>

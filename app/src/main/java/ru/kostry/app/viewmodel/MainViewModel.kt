@@ -33,4 +33,8 @@ class MainViewModel : ViewModel() {
         return userString == ""
     }
 
+    fun emptyNum(userNum: String): Boolean{
+        return userNum == ""
+    }
+
 }
