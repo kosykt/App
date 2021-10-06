@@ -15,4 +15,5 @@
     <string name="label_second_fragment">second fragment</string>
     <string name="label_third_fragment">third fragment</string>
     <string name="back_to_main_btn">back to main</string>
+    <string name="try_again">try again</string>
 </resources>

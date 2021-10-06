@@ -18,7 +18,7 @@ class MainViewModel : ViewModel() {
 
     fun resetModel() {
         _myNumber.value = 0
-        _myString.value = "test"
+        _myString.value = ""
     }
 
     fun setMyNumber(number: Int) {
@@ -27,6 +27,10 @@ class MainViewModel : ViewModel() {
 
     fun setMyString(str: String) {
         _myString.value = str
+    }
+    
+    fun emptyString(userString: String):Boolean{
+        return userString == ""
     }
 
 }

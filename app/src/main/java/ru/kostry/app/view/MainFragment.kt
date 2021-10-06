@@ -43,9 +43,23 @@ class MainFragment : Fragment() {
         binding = null
     }
 
+    private fun setErrorTextField(error: Boolean) {
+        if (error) {
+            binding?.mainEditTextField?.isErrorEnabled = true
+            binding?.mainEditTextField?.error = getString(R.string.try_again)
+        } else {
+            binding?.mainEditTextField?.isErrorEnabled = false
+            binding?.mainTextInputEditText?.text = null
+        }
+    }
+
     fun buttonNextOnMainFragment(){
-//        пример сохранения и вывода LiveData
-        sharedViewModel.setMyString(binding?.mainEditText?.text.toString())
-        findNavController().navigate(R.id.action_mainFragment_to_firstFragment)
+        if (sharedViewModel.emptyString(binding?.mainTextInputEditText?.text.toString())){
+            setErrorTextField(true)
+        }else{
+            setErrorTextField(false)
+            sharedViewModel.setMyString(binding?.mainTextInputEditText?.text.toString())
+            findNavController().navigate(R.id.action_mainFragment_to_firstFragment)
+        }
     }
 }
