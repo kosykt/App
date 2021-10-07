@@ -16,7 +16,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/second_frg"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/side_margin">
 
         <TextView
             android:id="@+id/second_fragment_int_message"
@@ -42,6 +43,7 @@
             android:id="@+id/btn_next_second_fragment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/side_margin"
             android:text="@string/button_text_next"
             app:layout_constraintBottom_toTopOf="@+id/btn_back_second_fragment"
             app:layout_constraintEnd_toEndOf="parent"
@@ -53,12 +55,51 @@
             android:id="@+id/btn_back_second_fragment"
             style="?attr/materialButtonOutlinedStyle"
             android:layout_width="wrap_content"
+            android:layout_marginTop="@dimen/side_margin"
             android:layout_height="wrap_content"
             android:onClick="@{()-> secondFragment.buttonBackOnSecondFragment()}"
             android:text="@string/back_to_main_btn"
+            app:layout_constraintBottom_toTopOf="@id/divider"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btn_next_second_fragment" />
+
+        <View
+            android:id="@+id/divider"
+            android:background="@color/black"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/side_margin"
+            android:layout_marginBottom="@dimen/side_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_back_second_fragment" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/photos_grid"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:clipToPadding="false"
+            android:padding="6dp"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:listData="@{viewModel.photos}"
+            app:spanCount="2"
+            tools:itemCount="16"
+            tools:listitem="@layout/grid_view_item" />
+
+        <ImageView
+            android:id="@+id/status_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:marsApiStatus="@{viewModel.status}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

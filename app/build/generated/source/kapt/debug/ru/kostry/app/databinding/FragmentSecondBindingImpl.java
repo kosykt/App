@@ -15,6 +15,7 @@ public class FragmentSecondBindingImpl extends FragmentSecondBinding implements 
         sIncludes = null;
         sViewsWithIds = new android.util.SparseIntArray();
         sViewsWithIds.put(R.id.btn_next_second_fragment, 4);
+        sViewsWithIds.put(R.id.divider, 5);
     }
     // views
     // variables
@@ -25,12 +26,13 @@ public class FragmentSecondBindingImpl extends FragmentSecondBinding implements 
     // Inverse Binding Event Handlers
 
     public FragmentSecondBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
-        this(bindingComponent, root, mapBindings(bindingComponent, root, 5, sIncludes, sViewsWithIds));
+        this(bindingComponent, root, mapBindings(bindingComponent, root, 6, sIncludes, sViewsWithIds));
     }
     private FragmentSecondBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 2
             , (android.widget.Button) bindings[3]
             , (android.widget.Button) bindings[4]
+            , (android.view.View) bindings[5]
             , (android.widget.TextView) bindings[1]
             , (android.widget.TextView) bindings[2]
             , (androidx.constraintlayout.widget.ConstraintLayout) bindings[0]
