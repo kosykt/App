@@ -9,6 +9,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import ru.kostry.app.R
 import ru.kostry.app.databinding.FragmentSecondBinding
+import ru.kostry.app.ui.adapter.PhotoGridAdapter
 import ru.kostry.app.ui.viewmodel.MainViewModel
 
 class SecondFragment : Fragment() {
@@ -22,6 +23,7 @@ class SecondFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val fragmentSecondBinding = FragmentSecondBinding.inflate(inflater, container, false)
+
         binding = fragmentSecondBinding
         return fragmentSecondBinding.root
     }
@@ -35,6 +37,8 @@ class SecondFragment : Fragment() {
             viewModel = sharedViewModel
 //            позволяет использовать onClickListener прямо в xml
             secondFragment = this@SecondFragment
+//        инициализировать адаптер RecyclerView в binding.photosGrid новым объектом PhotoGridAdapter
+            photosGrid.adapter = PhotoGridAdapter()
         }
     }
 

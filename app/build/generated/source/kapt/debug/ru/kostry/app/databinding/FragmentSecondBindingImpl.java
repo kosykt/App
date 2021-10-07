@@ -14,8 +14,8 @@ public class FragmentSecondBindingImpl extends FragmentSecondBinding implements 
     static {
         sIncludes = null;
         sViewsWithIds = new android.util.SparseIntArray();
-        sViewsWithIds.put(R.id.btn_next_second_fragment, 4);
-        sViewsWithIds.put(R.id.divider, 5);
+        sViewsWithIds.put(R.id.btn_next_second_fragment, 6);
+        sViewsWithIds.put(R.id.divider, 7);
     }
     // views
     // variables
@@ -26,21 +26,25 @@ public class FragmentSecondBindingImpl extends FragmentSecondBinding implements 
     // Inverse Binding Event Handlers
 
     public FragmentSecondBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
-        this(bindingComponent, root, mapBindings(bindingComponent, root, 6, sIncludes, sViewsWithIds));
+        this(bindingComponent, root, mapBindings(bindingComponent, root, 8, sIncludes, sViewsWithIds));
     }
     private FragmentSecondBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
-        super(bindingComponent, root, 2
+        super(bindingComponent, root, 4
             , (android.widget.Button) bindings[3]
-            , (android.widget.Button) bindings[4]
-            , (android.view.View) bindings[5]
+            , (android.widget.Button) bindings[6]
+            , (android.view.View) bindings[7]
+            , (androidx.recyclerview.widget.RecyclerView) bindings[4]
             , (android.widget.TextView) bindings[1]
             , (android.widget.TextView) bindings[2]
             , (androidx.constraintlayout.widget.ConstraintLayout) bindings[0]
+            , (android.widget.ImageView) bindings[5]
             );
         this.btnBackSecondFragment.setTag(null);
+        this.photosGrid.setTag(null);
         this.secondFragmentIntMessage.setTag(null);
         this.secondFragmentStringMessage.setTag(null);
         this.secondFrg.setTag(null);
+        this.statusImage.setTag(null);
         setRootTag(root);
         // listeners
         mCallback1 = new ru.kostry.app.generated.callback.OnClickListener(this, 1);
@@ -50,7 +54,7 @@ public class FragmentSecondBindingImpl extends FragmentSecondBinding implements 
     @Override
     public void invalidateAll() {
         synchronized(this) {
-                mDirtyFlags = 0x10L;
+                mDirtyFlags = 0x40L;
         }
         requestRebind();
     }
@@ -83,7 +87,7 @@ public class FragmentSecondBindingImpl extends FragmentSecondBinding implements 
     public void setSecondFragment(@Nullable ru.kostry.app.ui.view.SecondFragment SecondFragment) {
         this.mSecondFragment = SecondFragment;
         synchronized(this) {
-            mDirtyFlags |= 0x4L;
+            mDirtyFlags |= 0x10L;
         }
         notifyPropertyChanged(BR.secondFragment);
         super.requestRebind();
@@ -91,7 +95,7 @@ public class FragmentSecondBindingImpl extends FragmentSecondBinding implements 
     public void setViewModel(@Nullable ru.kostry.app.ui.viewmodel.MainViewModel ViewModel) {
         this.mViewModel = ViewModel;
         synchronized(this) {
-            mDirtyFlags |= 0x8L;
+            mDirtyFlags |= 0x20L;
         }
         notifyPropertyChanged(BR.viewModel);
         super.requestRebind();
@@ -101,13 +105,17 @@ public class FragmentSecondBindingImpl extends FragmentSecondBinding implements 
     protected boolean onFieldChange(int localFieldId, Object object, int fieldId) {
         switch (localFieldId) {
             case 0 :
-                return onChangeViewModelMyString((androidx.lifecycle.LiveData<java.lang.String>) object, fieldId);
+                return onChangeViewModelPhotos((androidx.lifecycle.LiveData<java.util.List<ru.kostry.app.network.MarsPhoto>>) object, fieldId);
             case 1 :
+                return onChangeViewModelStatus((androidx.lifecycle.LiveData<ru.kostry.app.ui.viewmodel.MarsApiStatus>) object, fieldId);
+            case 2 :
+                return onChangeViewModelMyString((androidx.lifecycle.LiveData<java.lang.String>) object, fieldId);
+            case 3 :
                 return onChangeViewModelMyNumber((androidx.lifecycle.LiveData<java.lang.Integer>) object, fieldId);
         }
         return false;
     }
-    private boolean onChangeViewModelMyString(androidx.lifecycle.LiveData<java.lang.String> ViewModelMyString, int fieldId) {
+    private boolean onChangeViewModelPhotos(androidx.lifecycle.LiveData<java.util.List<ru.kostry.app.network.MarsPhoto>> ViewModelPhotos, int fieldId) {
         if (fieldId == BR._all) {
             synchronized(this) {
                     mDirtyFlags |= 0x1L;
@@ -116,10 +124,28 @@ public class FragmentSecondBindingImpl extends FragmentSecondBinding implements 
         }
         return false;
     }
-    private boolean onChangeViewModelMyNumber(androidx.lifecycle.LiveData<java.lang.Integer> ViewModelMyNumber, int fieldId) {
+    private boolean onChangeViewModelStatus(androidx.lifecycle.LiveData<ru.kostry.app.ui.viewmodel.MarsApiStatus> ViewModelStatus, int fieldId) {
         if (fieldId == BR._all) {
             synchronized(this) {
                     mDirtyFlags |= 0x2L;
+            }
+            return true;
+        }
+        return false;
+    }
+    private boolean onChangeViewModelMyString(androidx.lifecycle.LiveData<java.lang.String> ViewModelMyString, int fieldId) {
+        if (fieldId == BR._all) {
+            synchronized(this) {
+                    mDirtyFlags |= 0x4L;
+            }
+            return true;
+        }
+        return false;
+    }
+    private boolean onChangeViewModelMyNumber(androidx.lifecycle.LiveData<java.lang.Integer> ViewModelMyNumber, int fieldId) {
+        if (fieldId == BR._all) {
+            synchronized(this) {
+                    mDirtyFlags |= 0x8L;
             }
             return true;
         }
@@ -134,25 +160,57 @@ public class FragmentSecondBindingImpl extends FragmentSecondBinding implements 
             mDirtyFlags = 0;
         }
         ru.kostry.app.ui.view.SecondFragment secondFragment = mSecondFragment;
+        androidx.lifecycle.LiveData<java.util.List<ru.kostry.app.network.MarsPhoto>> viewModelPhotos = null;
         java.lang.String viewModelMyStringToString = null;
+        androidx.lifecycle.LiveData<ru.kostry.app.ui.viewmodel.MarsApiStatus> viewModelStatus = null;
         androidx.lifecycle.LiveData<java.lang.String> viewModelMyString = null;
         java.lang.String secondFragmentStringMessageAndroidStringUserTextViewModelMyStringToString = null;
         java.lang.Integer viewModelMyNumberGetValue = null;
+        ru.kostry.app.ui.viewmodel.MarsApiStatus viewModelStatusGetValue = null;
+        java.util.List<ru.kostry.app.network.MarsPhoto> viewModelPhotosGetValue = null;
         java.lang.String viewModelMyStringGetValue = null;
         ru.kostry.app.ui.viewmodel.MainViewModel viewModel = mViewModel;
         java.lang.String secondFragmentIntMessageAndroidStringUserNumberViewModelMyNumber = null;
         androidx.lifecycle.LiveData<java.lang.Integer> viewModelMyNumber = null;
 
-        if ((dirtyFlags & 0x1bL) != 0) {
+        if ((dirtyFlags & 0x6fL) != 0) {
 
 
-            if ((dirtyFlags & 0x19L) != 0) {
+            if ((dirtyFlags & 0x61L) != 0) {
+
+                    if (viewModel != null) {
+                        // read viewModel.photos
+                        viewModelPhotos = viewModel.getPhotos();
+                    }
+                    updateLiveDataRegistration(0, viewModelPhotos);
+
+
+                    if (viewModelPhotos != null) {
+                        // read viewModel.photos.getValue()
+                        viewModelPhotosGetValue = viewModelPhotos.getValue();
+                    }
+            }
+            if ((dirtyFlags & 0x62L) != 0) {
+
+                    if (viewModel != null) {
+                        // read viewModel.status
+                        viewModelStatus = viewModel.getStatus();
+                    }
+                    updateLiveDataRegistration(1, viewModelStatus);
+
+
+                    if (viewModelStatus != null) {
+                        // read viewModel.status.getValue()
+                        viewModelStatusGetValue = viewModelStatus.getValue();
+                    }
+            }
+            if ((dirtyFlags & 0x64L) != 0) {
 
                     if (viewModel != null) {
                         // read viewModel.myString
                         viewModelMyString = viewModel.getMyString();
                     }
-                    updateLiveDataRegistration(0, viewModelMyString);
+                    updateLiveDataRegistration(2, viewModelMyString);
 
 
                     if (viewModelMyString != null) {
@@ -170,13 +228,13 @@ public class FragmentSecondBindingImpl extends FragmentSecondBinding implements 
                     // read @android:string/user_text
                     secondFragmentStringMessageAndroidStringUserTextViewModelMyStringToString = secondFragmentStringMessage.getResources().getString(R.string.user_text, viewModelMyStringToString);
             }
-            if ((dirtyFlags & 0x1aL) != 0) {
+            if ((dirtyFlags & 0x68L) != 0) {
 
                     if (viewModel != null) {
                         // read viewModel.myNumber
                         viewModelMyNumber = viewModel.getMyNumber();
                     }
-                    updateLiveDataRegistration(1, viewModelMyNumber);
+                    updateLiveDataRegistration(3, viewModelMyNumber);
 
 
                     if (viewModelMyNumber != null) {
@@ -190,20 +248,30 @@ public class FragmentSecondBindingImpl extends FragmentSecondBinding implements 
             }
         }
         // batch finished
-        if ((dirtyFlags & 0x10L) != 0) {
+        if ((dirtyFlags & 0x40L) != 0) {
             // api target 1
 
             this.btnBackSecondFragment.setOnClickListener(mCallback1);
         }
-        if ((dirtyFlags & 0x1aL) != 0) {
+        if ((dirtyFlags & 0x61L) != 0) {
+            // api target 1
+
+            ru.kostry.app.ui.adapter.BindingAdaptersKt.bindRecyclerView(this.photosGrid, viewModelPhotosGetValue);
+        }
+        if ((dirtyFlags & 0x68L) != 0) {
             // api target 1
 
             androidx.databinding.adapters.TextViewBindingAdapter.setText(this.secondFragmentIntMessage, secondFragmentIntMessageAndroidStringUserNumberViewModelMyNumber);
         }
-        if ((dirtyFlags & 0x19L) != 0) {
+        if ((dirtyFlags & 0x64L) != 0) {
             // api target 1
 
             androidx.databinding.adapters.TextViewBindingAdapter.setText(this.secondFragmentStringMessage, secondFragmentStringMessageAndroidStringUserTextViewModelMyStringToString);
+        }
+        if ((dirtyFlags & 0x62L) != 0) {
+            // api target 1
+
+            ru.kostry.app.ui.adapter.BindingAdaptersKt.bindStatus(this.statusImage, viewModelStatusGetValue);
         }
     }
     // Listener Stub Implementations
@@ -227,11 +295,13 @@ public class FragmentSecondBindingImpl extends FragmentSecondBinding implements 
     // dirty flag
     private  long mDirtyFlags = 0xffffffffffffffffL;
     /* flag mapping
-        flag 0 (0x1L): viewModel.myString
-        flag 1 (0x2L): viewModel.myNumber
-        flag 2 (0x3L): secondFragment
-        flag 3 (0x4L): viewModel
-        flag 4 (0x5L): null
+        flag 0 (0x1L): viewModel.photos
+        flag 1 (0x2L): viewModel.status
+        flag 2 (0x3L): viewModel.myString
+        flag 3 (0x4L): viewModel.myNumber
+        flag 4 (0x5L): secondFragment
+        flag 5 (0x6L): viewModel
+        flag 6 (0x7L): null
     flag mapping end*/
     //end
 }

@@ -32,16 +32,16 @@ fun bindImage(imgView: ImageView, imgUrl: String?) {
 /*привязка данных автоматически отслеживает LiveData для списка объектов MarsPhoto.
  Затем адаптер привязки вызывается автоматически при изменении списка MarsPhoto.
  */
-//@BindingAdapter("listData")
-//fun bindRecyclerView(
-//    recyclerView: RecyclerView,
-//    data: List<MarsPhoto>?
-//) {
-////    каст recyclerView.adapter к PhotoGridAdapter
-//    val adapter = recyclerView.adapter as PhotoGridAdapter
-////    сообщает RecyclerView, когда доступен новый список.
-//    adapter.submitList(data)
-//}
+@BindingAdapter("listData")
+fun bindRecyclerView(
+    recyclerView: RecyclerView,
+    data: List<MarsPhoto>?
+) {
+//    каст recyclerView.adapter к PhotoGridAdapter
+    val adapter = recyclerView.adapter as PhotoGridAdapter
+//    сообщает RecyclerView, когда доступен новый список.
+    adapter.submitList(data)
+}
 /*
 использование адаптера привязки для ImageView, чтобы отображать значки для состояний загрузки и ошибок
  */
