@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import ru.kostry.app.data.Item
 import ru.kostry.app.databinding.FragmentThirdBinding
+import ru.kostry.app.ui.adapter.RoomAdapter
 import ru.kostry.app.ui.viewmodel.MainViewModel
 
 class ThirdFragment : Fragment() {
@@ -33,6 +35,8 @@ class ThirdFragment : Fragment() {
             viewModel = sharedViewModel
 //            позволяет использовать onClickListener прямо в xml
             thirdFragment = this@ThirdFragment
+
+            thirdFrgRecyclerView.adapter = RoomAdapter()
         }
     }
 

@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/room_item"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content" />
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="itemRoom"
+            type="ru.kostry.app.data.Item" />
+    </data>
+
+    <TextView
+        android:id="@+id/room_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</layout>
