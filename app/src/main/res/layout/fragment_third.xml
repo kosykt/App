@@ -25,21 +25,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/third_fragment_text"
-            app:layout_constraintBottom_toTopOf="@id/btn_third_fragment"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_chainStyle="packed" />
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintBottom_toTopOf="@+id/third_frg_recycler_view"/>
 
-        <Button
-            android:id="@+id/btn_third_fragment"
-            android:layout_width="wrap_content"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/third_frg_recycler_view"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/third_fragment_button_text"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:scrollbars="vertical"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/third_fragment_message" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/third_fragment_message" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
