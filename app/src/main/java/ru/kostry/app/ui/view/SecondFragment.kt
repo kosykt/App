@@ -47,6 +47,10 @@ class SecondFragment : Fragment() {
         binding = null
     }
 
+    fun buttonNextOnSecondFragment() {
+        findNavController().navigate(R.id.action_secondFragment_to_thirdFragment)
+    }
+
     fun buttonBackOnSecondFragment() {
         sharedViewModel.resetModel()
         findNavController().navigate(R.id.action_secondFragment_to_mainFragment)

@@ -14,13 +14,14 @@ public class FragmentSecondBindingImpl extends FragmentSecondBinding implements 
     static {
         sIncludes = null;
         sViewsWithIds = new android.util.SparseIntArray();
-        sViewsWithIds.put(R.id.btn_next_second_fragment, 6);
         sViewsWithIds.put(R.id.divider, 7);
     }
     // views
     // variables
     @Nullable
     private final android.view.View.OnClickListener mCallback1;
+    @Nullable
+    private final android.view.View.OnClickListener mCallback2;
     // values
     // listeners
     // Inverse Binding Event Handlers
@@ -30,16 +31,17 @@ public class FragmentSecondBindingImpl extends FragmentSecondBinding implements 
     }
     private FragmentSecondBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 4
+            , (android.widget.Button) bindings[4]
             , (android.widget.Button) bindings[3]
-            , (android.widget.Button) bindings[6]
             , (android.view.View) bindings[7]
-            , (androidx.recyclerview.widget.RecyclerView) bindings[4]
+            , (androidx.recyclerview.widget.RecyclerView) bindings[5]
             , (android.widget.TextView) bindings[1]
             , (android.widget.TextView) bindings[2]
             , (androidx.constraintlayout.widget.ConstraintLayout) bindings[0]
-            , (android.widget.ImageView) bindings[5]
+            , (android.widget.ImageView) bindings[6]
             );
         this.btnBackSecondFragment.setTag(null);
+        this.btnNextSecondFragment.setTag(null);
         this.photosGrid.setTag(null);
         this.secondFragmentIntMessage.setTag(null);
         this.secondFragmentStringMessage.setTag(null);
@@ -48,6 +50,7 @@ public class FragmentSecondBindingImpl extends FragmentSecondBinding implements 
         setRootTag(root);
         // listeners
         mCallback1 = new ru.kostry.app.generated.callback.OnClickListener(this, 1);
+        mCallback2 = new ru.kostry.app.generated.callback.OnClickListener(this, 2);
         invalidateAll();
     }
 
@@ -251,7 +254,8 @@ public class FragmentSecondBindingImpl extends FragmentSecondBinding implements 
         if ((dirtyFlags & 0x40L) != 0) {
             // api target 1
 
-            this.btnBackSecondFragment.setOnClickListener(mCallback1);
+            this.btnBackSecondFragment.setOnClickListener(mCallback2);
+            this.btnNextSecondFragment.setOnClickListener(mCallback1);
         }
         if ((dirtyFlags & 0x61L) != 0) {
             // api target 1
@@ -277,19 +281,41 @@ public class FragmentSecondBindingImpl extends FragmentSecondBinding implements 
     // Listener Stub Implementations
     // callback impls
     public final void _internalCallbackOnClick(int sourceId , android.view.View callbackArg_0) {
-        // localize variables for thread safety
-        // secondFragment
-        ru.kostry.app.ui.view.SecondFragment secondFragment = mSecondFragment;
-        // secondFragment != null
-        boolean secondFragmentJavaLangObjectNull = false;
+        switch(sourceId) {
+            case 1: {
+                // localize variables for thread safety
+                // secondFragment
+                ru.kostry.app.ui.view.SecondFragment secondFragment = mSecondFragment;
+                // secondFragment != null
+                boolean secondFragmentJavaLangObjectNull = false;
 
 
 
-        secondFragmentJavaLangObjectNull = (secondFragment) != (null);
-        if (secondFragmentJavaLangObjectNull) {
+                secondFragmentJavaLangObjectNull = (secondFragment) != (null);
+                if (secondFragmentJavaLangObjectNull) {
 
 
-            secondFragment.buttonBackOnSecondFragment();
+                    secondFragment.buttonNextOnSecondFragment();
+                }
+                break;
+            }
+            case 2: {
+                // localize variables for thread safety
+                // secondFragment
+                ru.kostry.app.ui.view.SecondFragment secondFragment = mSecondFragment;
+                // secondFragment != null
+                boolean secondFragmentJavaLangObjectNull = false;
+
+
+
+                secondFragmentJavaLangObjectNull = (secondFragment) != (null);
+                if (secondFragmentJavaLangObjectNull) {
+
+
+                    secondFragment.buttonBackOnSecondFragment();
+                }
+                break;
+            }
         }
     }
     // dirty flag

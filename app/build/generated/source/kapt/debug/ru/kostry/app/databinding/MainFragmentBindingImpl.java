@@ -20,7 +20,7 @@ public class MainFragmentBindingImpl extends MainFragmentBinding implements ru.k
     // views
     // variables
     @Nullable
-    private final android.view.View.OnClickListener mCallback4;
+    private final android.view.View.OnClickListener mCallback5;
     // values
     // listeners
     // Inverse Binding Event Handlers
@@ -39,7 +39,7 @@ public class MainFragmentBindingImpl extends MainFragmentBinding implements ru.k
         this.mainFrg.setTag(null);
         setRootTag(root);
         // listeners
-        mCallback4 = new ru.kostry.app.generated.callback.OnClickListener(this, 1);
+        mCallback5 = new ru.kostry.app.generated.callback.OnClickListener(this, 1);
         invalidateAll();
     }
 
@@ -107,7 +107,7 @@ public class MainFragmentBindingImpl extends MainFragmentBinding implements ru.k
         if ((dirtyFlags & 0x4L) != 0) {
             // api target 1
 
-            this.btnMainFragment.setOnClickListener(mCallback4);
+            this.btnMainFragment.setOnClickListener(mCallback5);
         }
     }
     // Listener Stub Implementations

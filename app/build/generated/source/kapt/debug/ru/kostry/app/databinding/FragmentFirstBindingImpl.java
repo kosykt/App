@@ -22,7 +22,7 @@ public class FragmentFirstBindingImpl extends FragmentFirstBinding implements ru
     @Nullable
     private final android.view.View.OnClickListener mCallback3;
     @Nullable
-    private final android.view.View.OnClickListener mCallback2;
+    private final android.view.View.OnClickListener mCallback4;
     // values
     // listeners
     // Inverse Binding Event Handlers
@@ -45,8 +45,8 @@ public class FragmentFirstBindingImpl extends FragmentFirstBinding implements ru
         this.firstFrg.setTag(null);
         setRootTag(root);
         // listeners
-        mCallback3 = new ru.kostry.app.generated.callback.OnClickListener(this, 2);
-        mCallback2 = new ru.kostry.app.generated.callback.OnClickListener(this, 1);
+        mCallback3 = new ru.kostry.app.generated.callback.OnClickListener(this, 1);
+        mCallback4 = new ru.kostry.app.generated.callback.OnClickListener(this, 2);
         invalidateAll();
     }
 
@@ -162,8 +162,8 @@ public class FragmentFirstBindingImpl extends FragmentFirstBinding implements ru
         if ((dirtyFlags & 0x8L) != 0) {
             // api target 1
 
-            this.btnBackFirstFragment.setOnClickListener(mCallback3);
-            this.btnNextFirstFragment.setOnClickListener(mCallback2);
+            this.btnBackFirstFragment.setOnClickListener(mCallback4);
+            this.btnNextFirstFragment.setOnClickListener(mCallback3);
         }
         if ((dirtyFlags & 0xdL) != 0) {
             // api target 1
@@ -175,23 +175,6 @@ public class FragmentFirstBindingImpl extends FragmentFirstBinding implements ru
     // callback impls
     public final void _internalCallbackOnClick(int sourceId , android.view.View callbackArg_0) {
         switch(sourceId) {
-            case 2: {
-                // localize variables for thread safety
-                // firstFragment
-                ru.kostry.app.ui.view.FirstFragment firstFragment = mFirstFragment;
-                // firstFragment != null
-                boolean firstFragmentJavaLangObjectNull = false;
-
-
-
-                firstFragmentJavaLangObjectNull = (firstFragment) != (null);
-                if (firstFragmentJavaLangObjectNull) {
-
-
-                    firstFragment.buttonBackOnFirstFragment();
-                }
-                break;
-            }
             case 1: {
                 // localize variables for thread safety
                 // firstFragment
@@ -206,6 +189,23 @@ public class FragmentFirstBindingImpl extends FragmentFirstBinding implements ru
 
 
                     firstFragment.buttonNextOnFirstFragment();
+                }
+                break;
+            }
+            case 2: {
+                // localize variables for thread safety
+                // firstFragment
+                ru.kostry.app.ui.view.FirstFragment firstFragment = mFirstFragment;
+                // firstFragment != null
+                boolean firstFragmentJavaLangObjectNull = false;
+
+
+
+                firstFragmentJavaLangObjectNull = (firstFragment) != (null);
+                if (firstFragmentJavaLangObjectNull) {
+
+
+                    firstFragment.buttonBackOnFirstFragment();
                 }
                 break;
             }

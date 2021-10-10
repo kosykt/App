@@ -45,6 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/side_margin"
             android:text="@string/button_text_next"
+            android:onClick="@{()->secondFragment.buttonNextOnSecondFragment()}"
             app:layout_constraintBottom_toTopOf="@+id/btn_back_second_fragment"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
