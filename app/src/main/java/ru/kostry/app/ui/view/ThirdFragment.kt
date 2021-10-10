@@ -10,11 +10,12 @@ import ru.kostry.app.data.Item
 import ru.kostry.app.databinding.FragmentThirdBinding
 import ru.kostry.app.ui.adapter.RoomAdapter
 import ru.kostry.app.ui.viewmodel.MainViewModel
+import ru.kostry.app.ui.viewmodel.RoomViewModel
 
 class ThirdFragment : Fragment() {
 
     private var binding: FragmentThirdBinding? = null
-    private val sharedViewModel: MainViewModel by activityViewModels()
+    private val sharedViewModel: RoomViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
