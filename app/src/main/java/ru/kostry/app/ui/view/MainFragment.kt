@@ -64,4 +64,8 @@ class MainFragment : Fragment() {
             findNavController().navigate(R.id.action_mainFragment_to_firstFragment)
         }
     }
+
+    fun buttonToThirdFragment(){
+        findNavController().navigate(R.id.action_mainFragment_to_thirdFragment)
+    }
 }

@@ -14,32 +14,39 @@ public class MainFragmentBindingImpl extends MainFragmentBinding implements ru.k
     static {
         sIncludes = null;
         sViewsWithIds = new android.util.SparseIntArray();
-        sViewsWithIds.put(R.id.main_edit_text_field, 2);
-        sViewsWithIds.put(R.id.main_text_input_edit_text, 3);
+        sViewsWithIds.put(R.id.main_edit_text_field, 3);
+        sViewsWithIds.put(R.id.main_text_input_edit_text, 4);
     }
     // views
+    @NonNull
+    private final android.widget.Button mboundView2;
     // variables
     @Nullable
     private final android.view.View.OnClickListener mCallback5;
+    @Nullable
+    private final android.view.View.OnClickListener mCallback6;
     // values
     // listeners
     // Inverse Binding Event Handlers
 
     public MainFragmentBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
-        this(bindingComponent, root, mapBindings(bindingComponent, root, 4, sIncludes, sViewsWithIds));
+        this(bindingComponent, root, mapBindings(bindingComponent, root, 5, sIncludes, sViewsWithIds));
     }
     private MainFragmentBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 0
             , (android.widget.Button) bindings[1]
-            , (com.google.android.material.textfield.TextInputLayout) bindings[2]
+            , (com.google.android.material.textfield.TextInputLayout) bindings[3]
             , (androidx.constraintlayout.widget.ConstraintLayout) bindings[0]
-            , (com.google.android.material.textfield.TextInputEditText) bindings[3]
+            , (com.google.android.material.textfield.TextInputEditText) bindings[4]
             );
         this.btnMainFragment.setTag(null);
         this.mainFrg.setTag(null);
+        this.mboundView2 = (android.widget.Button) bindings[2];
+        this.mboundView2.setTag(null);
         setRootTag(root);
         // listeners
         mCallback5 = new ru.kostry.app.generated.callback.OnClickListener(this, 1);
+        mCallback6 = new ru.kostry.app.generated.callback.OnClickListener(this, 2);
         invalidateAll();
     }
 
@@ -108,24 +115,47 @@ public class MainFragmentBindingImpl extends MainFragmentBinding implements ru.k
             // api target 1
 
             this.btnMainFragment.setOnClickListener(mCallback5);
+            this.mboundView2.setOnClickListener(mCallback6);
         }
     }
     // Listener Stub Implementations
     // callback impls
     public final void _internalCallbackOnClick(int sourceId , android.view.View callbackArg_0) {
-        // localize variables for thread safety
-        // mainFragment != null
-        boolean mainFragmentJavaLangObjectNull = false;
-        // mainFragment
-        ru.kostry.app.ui.view.MainFragment mainFragment = mMainFragment;
+        switch(sourceId) {
+            case 1: {
+                // localize variables for thread safety
+                // mainFragment != null
+                boolean mainFragmentJavaLangObjectNull = false;
+                // mainFragment
+                ru.kostry.app.ui.view.MainFragment mainFragment = mMainFragment;
 
 
 
-        mainFragmentJavaLangObjectNull = (mainFragment) != (null);
-        if (mainFragmentJavaLangObjectNull) {
+                mainFragmentJavaLangObjectNull = (mainFragment) != (null);
+                if (mainFragmentJavaLangObjectNull) {
 
 
-            mainFragment.buttonNextOnMainFragment();
+                    mainFragment.buttonNextOnMainFragment();
+                }
+                break;
+            }
+            case 2: {
+                // localize variables for thread safety
+                // mainFragment != null
+                boolean mainFragmentJavaLangObjectNull = false;
+                // mainFragment
+                ru.kostry.app.ui.view.MainFragment mainFragment = mMainFragment;
+
+
+
+                mainFragmentJavaLangObjectNull = (mainFragment) != (null);
+                if (mainFragmentJavaLangObjectNull) {
+
+
+                    mainFragment.buttonToThirdFragment();
+                }
+                break;
+            }
         }
     }
     // dirty flag
